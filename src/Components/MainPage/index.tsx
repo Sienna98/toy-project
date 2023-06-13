@@ -10,4 +10,5 @@ export default MainPage;
 
 const StyledMainPage = styled.div`
   background-color: ${theme.colors.lightgray};
+  height: 100vh;
 `;

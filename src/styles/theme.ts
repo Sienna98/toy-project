@@ -1,6 +1,9 @@
 import { DefaultTheme } from "styled-components";
 
-const colors = {
+interface Icolors {
+  [key: string]: string;
+}
+const colors: Icolors = {
   orange: "#FB842D",
   yellow: "#FFD400",
   darkgray: "#FFD400",
