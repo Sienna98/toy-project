@@ -1,10 +1,13 @@
 import React from "react";
+import Header from "@/Components/Header";
+import MainPage from "@/Components/MainPage";
 
 const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Nextjs TEST</h1>
-    </div>
+    <>
+      <Header />
+      <MainPage />
+    </>
   );
 };
 
