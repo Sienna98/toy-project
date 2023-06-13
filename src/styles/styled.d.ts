@@ -1,11 +1,8 @@
 import "styled-components";
+import { ColorsTypes } from "./theme";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    accent1: string;
-    accent2: string;
-    accent3: string;
-    text: string;
-    bg1: string;
+    colors: ColorsTypes;
   }
 }
