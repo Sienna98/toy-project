@@ -5,8 +5,10 @@ import FruitBox from "../FruitBox";
 import MainButton from "../MainButton";
 
 type ButtonName = string | boolean;
-
-const MainPage = () => {
+interface IMainPage {
+  handleIsAddNumber: () => void;
+}
+const MainPage = ({ handleIsAddNumber }: IMainPage) => {
   const [isfruitTypeButton, setIsfruitTypeButton] =
     useState<ButtonName>("전체");
 
@@ -42,7 +44,7 @@ const MainPage = () => {
         </MainButton>
       </StyledButtonWrap>
       <FruitBoxWrap className="mt48">
-        <FruitBox />
+        <FruitBox handleIsAddNumber={handleIsAddNumber} />
       </FruitBoxWrap>
     </StyledMainPage>
   );

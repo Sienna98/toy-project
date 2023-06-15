@@ -4,7 +4,10 @@ import { fruitProducts } from "@/data/fruit-products";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
-const FruitBox = () => {
+interface IFruitBox {
+  handleIsAddNumber: () => void;
+}
+const FruitBox = ({ handleIsAddNumber }: IFruitBox) => {
   return (
     <>
       {fruitProducts.map((fruit) => (
@@ -28,9 +31,13 @@ const FruitBox = () => {
           <StyledButtonWrap>
             <MainButton backgroundColor="lightgray">빼기</MainButton>
             {fruit.isPrime ? (
-              <MainButton backgroundColor="orange">담기</MainButton>
+              <MainButton backgroundColor="orange" onClick={handleIsAddNumber}>
+                담기
+              </MainButton>
             ) : (
-              <MainButton backgroundColor="yellow">담기</MainButton>
+              <MainButton backgroundColor="yellow" onClick={handleIsAddNumber}>
+                담기
+              </MainButton>
             )}
           </StyledButtonWrap>
         </StyledFruitBox>

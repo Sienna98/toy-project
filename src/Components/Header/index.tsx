@@ -4,12 +4,16 @@ import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
 type TabName = string | boolean;
-
-const Header = () => {
+interface IHeader {
+  isAddNumber: number;
+}
+const Header = ({ isAddNumber }: IHeader) => {
   const [isTabButton, setIsTabButton] = useState<TabName>("상품목록");
+
   const handelIsTabButton = (tabName: TabName) => {
     setIsTabButton(tabName);
   };
+
   return (
     <StyledHeader>
       <StyledTitle>시은이네 과일가게</StyledTitle>
@@ -22,7 +26,7 @@ const Header = () => {
         >
           상품목록
         </MainButton>
-        <div>
+        <StyledRelative>
           <MainButton
             backgroundColor={`${
               isTabButton === "장바구니" ? "lightgray" : "transparent"
@@ -31,8 +35,8 @@ const Header = () => {
           >
             장바구니
           </MainButton>
-          <StyledCartCount>1</StyledCartCount>
-        </div>
+          <StyledCartCount>{isAddNumber}</StyledCartCount>
+        </StyledRelative>
       </StyledButtonWrap>
     </StyledHeader>
   );
@@ -68,6 +72,9 @@ const StyledButtonWrap = styled.div`
   display: flex;
   gap: 12px;
   margin-right: 16px;
+`;
+const StyledRelative = styled.div`
+  position: relative;
 `;
 const StyledCartCount = styled.span`
   position: absolute;
