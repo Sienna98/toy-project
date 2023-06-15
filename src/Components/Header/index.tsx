@@ -7,8 +7,8 @@ const Header = () => {
     <StyledHeader>
       <StyledTitle>시은이네 과일가게</StyledTitle>
       <StyledButtonWrap>
-        <MainButton backgroundColor="transparent">상품목록</MainButton>
-        <MainButton backgroundColor="lightgray">장바구니</MainButton>
+        <MainButton backgroundColor="lightgray">상품목록</MainButton>
+        <MainButton backgroundColor="transparent">장바구니</MainButton>
       </StyledButtonWrap>
     </StyledHeader>
   );

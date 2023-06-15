@@ -6,7 +6,7 @@ interface Icolors {
 const colors: Icolors = {
   orange: "#FB842D",
   yellow: "#FFD400",
-  darkgray: "#FFD400",
+  darkgray: "#C8CAD2",
   lightgray: "#F2F3F7",
 };
 export type ColorsTypes = typeof colors;

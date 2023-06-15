@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         font-display: fallback;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        box-sizing: border-box;
         
     }
     button {

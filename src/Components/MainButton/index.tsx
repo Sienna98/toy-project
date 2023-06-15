@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 
 interface IMainButton {
-  children: string;
+  children: React.ReactNode;
   backgroundColor: string;
 }
 const MainButton = ({ children, backgroundColor }: IMainButton) => {
@@ -22,4 +22,6 @@ const StyledButton = styled.button<{ backgroundColor: string }>`
   border-radius: 8px;
   background-color: ${({ backgroundColor, theme }) =>
     theme.colors[backgroundColor]};
+  color: ${({ backgroundColor }) =>
+    backgroundColor === "darkgray" ? "#9A9BA7" : ""};
 `;
