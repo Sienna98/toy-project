@@ -1,66 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
+import { fruitProducts } from "@/data/fruit-products";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
-interface IFruit {
-  id: number;
-  name: string;
-  image: string;
-  stock: number;
-  price: number;
-  isPrime: boolean;
-}
-
-interface IFruitBox {
-  prime?: boolean;
-  fruitName: string;
-}
-const FruitBox = ({ prime = false, fruitName }: IFruitBox) => {
-  const [fruits, setFruits] = useState<IFruit[]>([]);
-  useEffect(() => {
-    fetch("/api/fruits")
-      .then((response) => response.json())
-      .then((data) => setFruits(data))
-      .catch((error) => console.error(error));
-  }, []);
-
+const FruitBox = () => {
   return (
-    <StyledFruitBox>
-      {prime && <Prime>prime</Prime>}
-      <Flex>
-        {fruits.map((fruit) => {
-          if (fruit.name === fruitName) {
-            return (
-              <div key={fruit.id}>
-                <img src={fruit.image} alt={fruit.name} />
-                <StyledFruitDetail>
-                  <li className="fruit">{fruit.name}</li>
-                  <li className="price mt19">{fruit.price}</li>
-                  <li className="count mt13">
-                    <span>잔량</span>
-                    {fruit.stock}
-                  </li>
-                  <li className="count mt8">
-                    <span>수량</span>
-                    {fruit.stock}
-                  </li>
-                </StyledFruitDetail>
-              </div>
-            );
-          }
-          return null;
-        })}
-      </Flex>
-      <StyledButtonWrap>
-        <MainButton backgroundColor="lightgray">빼기</MainButton>
-        {prime ? (
-          <MainButton backgroundColor="orange">담기</MainButton>
-        ) : (
-          <MainButton backgroundColor="yellow">담기</MainButton>
-        )}
-      </StyledButtonWrap>
-    </StyledFruitBox>
+    <>
+      {fruitProducts.map((fruit) => (
+        <StyledFruitBox key={fruit.id}>
+          {fruit.isPrime && <Prime>prime</Prime>}
+          <Flex>
+            <div>{fruit.image}</div>
+            <StyledFruitDetail>
+              <li className="fruit">{fruit.name}</li>
+              <li className="price mt19">{fruit.price}원</li>
+              <li className="count mt13">
+                <span>잔량</span>
+                {fruit.stock}
+              </li>
+              <li className="count mt8">
+                <span>수량</span>
+                {fruit.stock}
+              </li>
+            </StyledFruitDetail>
+          </Flex>
+          <StyledButtonWrap>
+            <MainButton backgroundColor="lightgray">빼기</MainButton>
+            {fruit.isPrime ? (
+              <MainButton backgroundColor="orange">담기</MainButton>
+            ) : (
+              <MainButton backgroundColor="yellow">담기</MainButton>
+            )}
+          </StyledButtonWrap>
+        </StyledFruitBox>
+      ))}
+    </>
   );
 };
 
@@ -102,6 +77,7 @@ const Flex = styled.div`
     justify-content: center;
   }
 `;
+
 const StyledFruitDetail = styled.ul`
   width: 50%;
   height: 100%;
