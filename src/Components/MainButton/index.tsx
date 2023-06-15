@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 interface IMainButton {
   children: React.ReactNode;
   backgroundColor: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: () => void;
 }
 const MainButton = ({ children, backgroundColor, onClick }: IMainButton) => {
   return (

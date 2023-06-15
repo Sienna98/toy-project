@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
+import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
 type TabName = string | boolean;
@@ -21,14 +22,17 @@ const Header = () => {
         >
           상품목록
         </MainButton>
-        <MainButton
-          backgroundColor={`${
-            isTabButton === "장바구니" ? "lightgray" : "transparent"
-          }`}
-          onClick={() => handelIsTabButton("장바구니")}
-        >
-          장바구니
-        </MainButton>
+        <div>
+          <MainButton
+            backgroundColor={`${
+              isTabButton === "장바구니" ? "lightgray" : "transparent"
+            }`}
+            onClick={() => handelIsTabButton("장바구니")}
+          >
+            장바구니
+          </MainButton>
+          <StyledCartCount>1</StyledCartCount>
+        </div>
       </StyledButtonWrap>
     </StyledHeader>
   );
@@ -64,4 +68,19 @@ const StyledButtonWrap = styled.div`
   display: flex;
   gap: 12px;
   margin-right: 16px;
+`;
+const StyledCartCount = styled.span`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: ${theme.colors.yellow};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 `;
