@@ -1,28 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
+interface IFruit {
+  id: number;
+  name: string;
+  image: string;
+  stock: number;
+  price: number;
+  isPrime: boolean;
+}
+
 interface IFruitBox {
   prime?: boolean;
-  fruit: string;
+  fruitName: string;
 }
-const FruitBox = ({ prime = false, fruit }: IFruitBox) => {
+const FruitBox = ({ prime = false, fruitName }: IFruitBox) => {
+  const [fruits, setFruits] = useState<IFruit[]>([]);
+  useEffect(() => {
+    fetch("/api/fruits")
+      .then((response) => response.json())
+      .then((data) => setFruits(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <StyledFruitBox>
       {prime && <Prime>prime</Prime>}
       <Flex>
-        <div>🍌</div>
-        <StyledFruitDetail>
-          <li className="fruit">{fruit}</li>
-          <li className="price mt19">4,000원</li>
-          <li className="count mt13">
-            <span>잔량</span>0
-          </li>
-          <li className="count mt8">
-            <span>수량</span>0
-          </li>
-        </StyledFruitDetail>
+        {fruits.map((fruit) => {
+          if (fruit.name === fruitName) {
+            return (
+              <div key={fruit.id}>
+                <img src={fruit.image} alt={fruit.name} />
+                <StyledFruitDetail>
+                  <li className="fruit">{fruit.name}</li>
+                  <li className="price mt19">{fruit.price}</li>
+                  <li className="count mt13">
+                    <span>잔량</span>
+                    {fruit.stock}
+                  </li>
+                  <li className="count mt8">
+                    <span>수량</span>
+                    {fruit.stock}
+                  </li>
+                </StyledFruitDetail>
+              </div>
+            );
+          }
+          return null;
+        })}
       </Flex>
       <StyledButtonWrap>
         <MainButton backgroundColor="lightgray">빼기</MainButton>

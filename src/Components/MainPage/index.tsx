@@ -15,8 +15,10 @@ const MainPage = () => {
         </MainButton>
       </StyledButtonWrap>
       <FruitBoxWrap className="mt48">
-        <FruitBox prime fruit="바나나" />
-        <FruitBox fruit="바나나" />
+        <FruitBox prime fruitName="바나나" />
+        <FruitBox fruitName="바나나" />
+        <FruitBox fruitName="바나나" />
+        <FruitBox fruitName="바나나" />
       </FruitBoxWrap>
     </StyledMainPage>
   );
@@ -25,10 +27,12 @@ const MainPage = () => {
 export default MainPage;
 
 const StyledMainPage = styled.div`
-  background-color: ${theme.colors.lightgray};
   height: 100vh;
-  margin-top: 64px;
   padding: 32px 48px;
+  max-width: 1440px;
+  margin: auto;
+  margin-top: 64px;
+  box-sizing: border-box;
 `;
 const StyledButtonWrap = styled.div`
   display: flex;
@@ -45,5 +49,6 @@ const Prime = styled.span`
 const FruitBoxWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 48px 48px;
+  gap: 48px 0;
+  justify-content: space-between;
 `;
