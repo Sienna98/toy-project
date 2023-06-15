@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import FruitBox from "../FruitBox";
 import MainButton from "../MainButton";
 
+type ButtonName = string | boolean;
+
 const MainPage = () => {
+  const [isfruitTypeButton, setIsfruitTypeButton] =
+    useState<ButtonName>("전체");
+
+  const handleIsfruitTypeButton = (buttonName: ButtonName) => {
+    setIsfruitTypeButton(buttonName);
+  };
   return (
     <StyledMainPage>
       <StyledButtonWrap>
-        <MainButton backgroundColor="yellow">전체</MainButton>
-        <MainButton backgroundColor="transparent">일반 과일</MainButton>
-        <MainButton backgroundColor="transparent">
+        <MainButton
+          backgroundColor={
+            isfruitTypeButton === "전체" ? "yellow" : "transparent"
+          }
+          onClick={() => handleIsfruitTypeButton("전체")}
+        >
+          전체
+        </MainButton>
+        <MainButton
+          backgroundColor={
+            isfruitTypeButton === "일반 과일" ? "yellow" : "transparent"
+          }
+          onClick={() => handleIsfruitTypeButton("일반 과일")}
+        >
+          일반 과일
+        </MainButton>
+        <MainButton
+          backgroundColor={
+            isfruitTypeButton === "prime 과일" ? "yellow" : "transparent"
+          }
+          onClick={() => handleIsfruitTypeButton("prime 과일")}
+        >
           <Prime>prime</Prime> 과일
         </MainButton>
       </StyledButtonWrap>

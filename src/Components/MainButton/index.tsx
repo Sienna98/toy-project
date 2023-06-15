@@ -4,10 +4,15 @@ import { styled } from "styled-components";
 interface IMainButton {
   children: React.ReactNode;
   backgroundColor: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-const MainButton = ({ children, backgroundColor }: IMainButton) => {
+const MainButton = ({ children, backgroundColor, onClick }: IMainButton) => {
   return (
-    <StyledButton backgroundColor={backgroundColor} type="button">
+    <StyledButton
+      backgroundColor={backgroundColor}
+      type="button"
+      onClick={onClick}
+    >
       {children}
     </StyledButton>
   );

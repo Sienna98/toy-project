@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import MainButton from "../MainButton";
 
+type TabName = string | boolean;
+
 const Header = () => {
+  const [isTabButton, setIsTabButton] = useState<TabName>("상품목록");
+  const handelIsTabButton = (tabName: TabName) => {
+    setIsTabButton(tabName);
+  };
   return (
     <StyledHeader>
       <StyledTitle>시은이네 과일가게</StyledTitle>
       <StyledButtonWrap>
-        <MainButton backgroundColor="lightgray">상품목록</MainButton>
-        <MainButton backgroundColor="transparent">장바구니</MainButton>
+        <MainButton
+          backgroundColor={`${
+            isTabButton === "상품목록" ? "lightgray" : "transparent"
+          }`}
+          onClick={() => handelIsTabButton("상품목록")}
+        >
+          상품목록
+        </MainButton>
+        <MainButton
+          backgroundColor={`${
+            isTabButton === "장바구니" ? "lightgray" : "transparent"
+          }`}
+          onClick={() => handelIsTabButton("장바구니")}
+        >
+          장바구니
+        </MainButton>
       </StyledButtonWrap>
     </StyledHeader>
   );
