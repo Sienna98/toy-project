@@ -7,12 +7,17 @@ const HomePage = () => {
 
   const handleIsAddNumber = () => {
     setIsAddNumber(isAddNumber + 1);
-    console.log("clicked");
+  };
+  const handleIsMinusNumber = () => {
+    setIsAddNumber(isAddNumber - 1);
   };
   return (
     <>
       <Header isAddNumber={isAddNumber} />
-      <MainPage handleIsAddNumber={handleIsAddNumber} />
+      <MainPage
+        handleIsAddNumber={handleIsAddNumber}
+        handleIsMinusNumber={handleIsMinusNumber}
+      />
     </>
   );
 };

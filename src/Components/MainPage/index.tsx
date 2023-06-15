@@ -7,8 +7,9 @@ import MainButton from "../MainButton";
 type ButtonName = string | boolean;
 interface IMainPage {
   handleIsAddNumber: () => void;
+  handleIsMinusNumber: () => void;
 }
-const MainPage = ({ handleIsAddNumber }: IMainPage) => {
+const MainPage = ({ handleIsAddNumber, handleIsMinusNumber }: IMainPage) => {
   const [isfruitTypeButton, setIsfruitTypeButton] =
     useState<ButtonName>("전체");
 
@@ -44,7 +45,10 @@ const MainPage = ({ handleIsAddNumber }: IMainPage) => {
         </MainButton>
       </StyledButtonWrap>
       <FruitBoxWrap className="mt48">
-        <FruitBox handleIsAddNumber={handleIsAddNumber} />
+        <FruitBox
+          handleIsAddNumber={handleIsAddNumber}
+          handleIsMinusNumber={handleIsMinusNumber}
+        />
       </FruitBoxWrap>
     </StyledMainPage>
   );

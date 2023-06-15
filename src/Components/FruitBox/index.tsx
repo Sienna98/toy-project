@@ -6,8 +6,9 @@ import MainButton from "../MainButton";
 
 interface IFruitBox {
   handleIsAddNumber: () => void;
+  handleIsMinusNumber: () => void;
 }
-const FruitBox = ({ handleIsAddNumber }: IFruitBox) => {
+const FruitBox = ({ handleIsAddNumber, handleIsMinusNumber }: IFruitBox) => {
   return (
     <>
       {fruitProducts.map((fruit) => (
@@ -29,7 +30,12 @@ const FruitBox = ({ handleIsAddNumber }: IFruitBox) => {
             </StyledFruitDetail>
           </Flex>
           <StyledButtonWrap>
-            <MainButton backgroundColor="lightgray">빼기</MainButton>
+            <MainButton
+              backgroundColor="lightgray"
+              onClick={handleIsMinusNumber}
+            >
+              빼기
+            </MainButton>
             {fruit.isPrime ? (
               <MainButton backgroundColor="orange" onClick={handleIsAddNumber}>
                 담기
