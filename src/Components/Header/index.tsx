@@ -1,33 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
-const Header = ({ countInCart }: { countInCart: number }) => {
-  const [isTabButton, setIsTabButton] = useState<string>("상품목록");
-
-  const handleClickTab = (tabName: string) => {
-    setIsTabButton(tabName);
-  };
-
+interface IHeader {
+  countInCart: number;
+  onClickTab: (tabName: string) => void;
+  tabButton: string;
+}
+const Header = ({ countInCart, onClickTab, tabButton }: IHeader) => {
   return (
     <StyledHeader>
       <StyledTitle>시은이네 과일가게</StyledTitle>
       <StyledButtonWrap>
         <MainButton
           backgroundColor={
-            isTabButton === "상품목록" ? "lightgray" : "transparent"
+            tabButton === "상품목록" ? "lightgray" : "transparent"
           }
-          onClick={() => handleClickTab("상품목록")}
+          onClick={() => onClickTab("상품목록")}
         >
           상품목록
         </MainButton>
         <StyledRelative>
           <MainButton
             backgroundColor={
-              isTabButton === "장바구니" ? "lightgray" : "transparent"
+              tabButton === "장바구니" ? "lightgray" : "transparent"
             }
-            onClick={() => handleClickTab("장바구니")}
+            onClick={() => onClickTab("장바구니")}
           >
             장바구니
           </MainButton>
