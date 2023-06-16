@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
-import FruitBox from "../FruitBox";
+import MainFruitBox from "../FruitBox/Main";
 import MainButton from "../MainButton";
 
 interface IMainPage {
@@ -39,16 +39,16 @@ const MainPage = ({ onAddNumber, onMinusNumber }: IMainPage) => {
           }
           onClick={() => handleIsfruitTypeButton("prime 과일")}
         >
-          <Prime>prime</Prime> 과일
+          <StyledPrime>prime</StyledPrime> 과일
         </MainButton>
       </StyledButtonWrap>
-      <FruitBoxWrap className="mt48">
-        <FruitBox
+      <StyledFruitBoxWrap className="mt48">
+        <MainFruitBox
           onAddNumber={onAddNumber}
           onMinusNumber={onMinusNumber}
           selected={isfruitTypeButton}
         />
-      </FruitBoxWrap>
+      </StyledFruitBoxWrap>
     </StyledMainPage>
   );
 };
@@ -69,14 +69,14 @@ const StyledButtonWrap = styled.div`
   gap: 16px;
   align-items: center;
 `;
-const Prime = styled.span`
+const StyledPrime = styled.span`
   font-size: 14px;
   font-weight: 700;
   font-style: italic;
   line-height: 23px;
   color: ${theme.colors.orange};
 `;
-const FruitBoxWrap = styled.div`
+const StyledFruitBoxWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 48px 48px;

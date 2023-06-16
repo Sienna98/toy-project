@@ -32,7 +32,7 @@ const HomePage = () => {
           onMinusNumber={handleIsMinusNumber}
         />
       ) : (
-        <CartPage />
+        <CartPage onMinusNumber={handleIsMinusNumber} />
       )}
     </>
   );

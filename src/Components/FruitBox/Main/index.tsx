@@ -2,12 +2,16 @@ import React from "react";
 import { fruitProducts } from "@/data/fruit-products";
 import FruitBoxItem from "./FruitBoxItem";
 
-interface IFruitBox {
+interface IMainFruitBox {
   onAddNumber: () => void;
   onMinusNumber: () => void;
   selected: string;
 }
-const FruitBox = ({ onAddNumber, onMinusNumber, selected }: IFruitBox) => {
+const MainFruitBox = ({
+  onAddNumber,
+  onMinusNumber,
+  selected,
+}: IMainFruitBox) => {
   return (
     <>
       {selected === "전체" && (
@@ -58,4 +62,4 @@ const FruitBox = ({ onAddNumber, onMinusNumber, selected }: IFruitBox) => {
   );
 };
 
-export default FruitBox;
+export default MainFruitBox;
