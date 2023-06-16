@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import Header from "@/Components/Header";
+import MainPage from "@/Components/MainPage";
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
+  const [isAddNumber, setIsAddNumber] = useState(0);
+
+  const handleIsAddNumber = () => {
+    setIsAddNumber(isAddNumber + 1);
+  };
+  const handleIsMinusNumber = () => {
+    setIsAddNumber(isAddNumber - 1);
+  };
   return (
-    <div>
-      <h1>Nextjs TEST</h1>
-    </div>
+    <>
+      <Header isAddNumber={isAddNumber} />
+      <MainPage
+        handleIsAddNumber={handleIsAddNumber}
+        handleIsMinusNumber={handleIsMinusNumber}
+      />
+    </>
   );
 };
 
