@@ -4,50 +4,68 @@ import { fruitProducts } from "@/data/fruit-products";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
+type ButtonName = string | boolean;
 interface IFruitBox {
   handleIsAddNumber: () => void;
   handleIsMinusNumber: () => void;
+  selected: ButtonName;
 }
-const FruitBox = ({ handleIsAddNumber, handleIsMinusNumber }: IFruitBox) => {
+const FruitBox = ({
+  handleIsAddNumber,
+  handleIsMinusNumber,
+  selected,
+}: IFruitBox) => {
   return (
     <>
-      {fruitProducts.map((fruit) => (
-        <StyledFruitBox key={fruit.id}>
-          {fruit.isPrime && <Prime>prime</Prime>}
-          <Flex>
-            <div>{fruit.image}</div>
-            <StyledFruitDetail>
-              <li className="fruit">{fruit.name}</li>
-              <li className="price mt19">{fruit.price}원</li>
-              <li className="count mt13">
-                <span>잔량</span>
-                {fruit.stock}
-              </li>
-              <li className="count mt8">
-                <span>수량</span>
-                {fruit.stock}
-              </li>
-            </StyledFruitDetail>
-          </Flex>
-          <StyledButtonWrap>
-            <MainButton
-              backgroundColor="lightgray"
-              onClick={handleIsMinusNumber}
-            >
-              빼기
-            </MainButton>
-            {fruit.isPrime ? (
-              <MainButton backgroundColor="orange" onClick={handleIsAddNumber}>
-                담기
-              </MainButton>
-            ) : (
-              <MainButton backgroundColor="yellow" onClick={handleIsAddNumber}>
-                담기
-              </MainButton>
-            )}
-          </StyledButtonWrap>
-        </StyledFruitBox>
-      ))}
+      {selected === "전체" && (
+        <>
+          {fruitProducts.map((fruit) => (
+            <StyledFruitBox key={fruit.id}>
+              {fruit.isPrime && <Prime>prime</Prime>}
+              <Flex>
+                <div>{fruit.image}</div>
+                <StyledFruitDetail>
+                  <li className="fruit">{fruit.name}</li>
+                  <li className="price mt19">{fruit.price}원</li>
+                  <li className="count mt13">
+                    <span>잔량</span>
+                    {fruit.stock}
+                  </li>
+                  <li className="count mt8">
+                    <span>수량</span>
+                    {fruit.stock}
+                  </li>
+                </StyledFruitDetail>
+              </Flex>
+              <StyledButtonWrap>
+                <MainButton
+                  backgroundColor="lightgray"
+                  onClick={handleIsMinusNumber}
+                >
+                  빼기
+                </MainButton>
+                {fruit.isPrime ? (
+                  <MainButton
+                    backgroundColor="orange"
+                    onClick={handleIsAddNumber}
+                  >
+                    담기
+                  </MainButton>
+                ) : (
+                  <MainButton
+                    backgroundColor="yellow"
+                    onClick={handleIsAddNumber}
+                  >
+                    담기
+                  </MainButton>
+                )}
+              </StyledButtonWrap>
+            </StyledFruitBox>
+          ))}
+        </>
+      )}
+      {selected === "일반 과일" && <>{selected}</>}
+      {selected === "prime 과일" && <>{selected}</>}
     </>
   );
 };

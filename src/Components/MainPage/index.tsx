@@ -48,6 +48,7 @@ const MainPage = ({ handleIsAddNumber, handleIsMinusNumber }: IMainPage) => {
         <FruitBox
           handleIsAddNumber={handleIsAddNumber}
           handleIsMinusNumber={handleIsMinusNumber}
+          selected={isfruitTypeButton}
         />
       </FruitBoxWrap>
     </StyledMainPage>
