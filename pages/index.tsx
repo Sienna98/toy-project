@@ -3,22 +3,22 @@ import Header from "@/Components/Header";
 import MainPage from "@/Components/MainPage";
 
 const HomePage = () => {
-  const [isAddNumber, setIsAddNumber] = useState(0);
+  const [isAddNumber, setAddNumber] = useState(0);
 
-  const handleIsAddNumber = () => {
-    setIsAddNumber(isAddNumber + 1);
+  const handleAddNumber = () => {
+    setAddNumber(isAddNumber + 1);
   };
   const handleIsMinusNumber = () => {
     if (isAddNumber > 0) {
-      setIsAddNumber(isAddNumber - 1);
+      setAddNumber(isAddNumber - 1);
     }
   };
   return (
     <>
-      <Header isAddNumber={isAddNumber} />
+      <Header countInCart={isAddNumber} />
       <MainPage
-        handleIsAddNumber={handleIsAddNumber}
-        handleIsMinusNumber={handleIsMinusNumber}
+        handleAddNumber={handleAddNumber}
+        handleMinusNumber={handleIsMinusNumber}
       />
     </>
   );

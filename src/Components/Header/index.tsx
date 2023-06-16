@@ -5,12 +5,12 @@ import MainButton from "../MainButton";
 
 type TabName = string | boolean;
 interface IHeader {
-  isAddNumber: number;
+  countInCart: number;
 }
-const Header = ({ isAddNumber }: IHeader) => {
+const Header = ({ countInCart }: IHeader) => {
   const [isTabButton, setIsTabButton] = useState<TabName>("상품목록");
 
-  const handelIsTabButton = (tabName: TabName) => {
+  const handleClickTab = (tabName: TabName) => {
     setIsTabButton(tabName);
   };
 
@@ -22,7 +22,7 @@ const Header = ({ isAddNumber }: IHeader) => {
           backgroundColor={`${
             isTabButton === "상품목록" ? "lightgray" : "transparent"
           }`}
-          onClick={() => handelIsTabButton("상품목록")}
+          onClick={() => handleClickTab("상품목록")}
         >
           상품목록
         </MainButton>
@@ -31,11 +31,11 @@ const Header = ({ isAddNumber }: IHeader) => {
             backgroundColor={`${
               isTabButton === "장바구니" ? "lightgray" : "transparent"
             }`}
-            onClick={() => handelIsTabButton("장바구니")}
+            onClick={() => handleClickTab("장바구니")}
           >
             장바구니
           </MainButton>
-          <StyledCartCount>{isAddNumber}</StyledCartCount>
+          <StyledCartCount>{countInCart}</StyledCartCount>
         </StyledRelative>
       </StyledButtonWrap>
     </StyledHeader>
