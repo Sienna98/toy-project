@@ -9,7 +9,9 @@ const HomePage = () => {
     setIsAddNumber(isAddNumber + 1);
   };
   const handleIsMinusNumber = () => {
-    setIsAddNumber(isAddNumber - 1);
+    if (isAddNumber > 0) {
+      setIsAddNumber(isAddNumber - 1);
+    }
   };
   return (
     <>
