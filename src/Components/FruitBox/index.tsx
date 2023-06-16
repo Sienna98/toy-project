@@ -27,8 +27,38 @@ const FruitBox = ({
           ))}
         </>
       )}
-      {selected === "일반 과일" && <>{selected}</>}
-      {selected === "prime 과일" && <>{selected}</>}
+      {selected === "일반 과일" && (
+        <>
+          {fruitProducts.map((fruit) => (
+            <>
+              {!fruit.isPrime && (
+                <FruitBoxItem
+                  key={fruit.id}
+                  fruit={fruit}
+                  handleAddNumber={handleAddNumber}
+                  handleMinusNumber={handleMinusNumber}
+                />
+              )}
+            </>
+          ))}
+        </>
+      )}
+      {selected === "prime 과일" && (
+        <>
+          {fruitProducts.map((fruit) => (
+            <>
+              {fruit.isPrime && (
+                <FruitBoxItem
+                  key={fruit.id}
+                  fruit={fruit}
+                  handleAddNumber={handleAddNumber}
+                  handleMinusNumber={handleMinusNumber}
+                />
+              )}
+            </>
+          ))}
+        </>
+      )}
     </>
   );
 };
