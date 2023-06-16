@@ -2,17 +2,12 @@ import React from "react";
 import { fruitProducts } from "@/data/fruit-products";
 import FruitBoxItem from "./FruitBoxItem";
 
-type ButtonName = string | boolean;
 interface IFruitBox {
-  handleAddNumber: () => void;
-  handleMinusNumber: () => void;
-  selected: ButtonName;
+  onAddNumber: () => void;
+  onMinusNumber: () => void;
+  selected: string;
 }
-const FruitBox = ({
-  handleAddNumber,
-  handleMinusNumber,
-  selected,
-}: IFruitBox) => {
+const FruitBox = ({ onAddNumber, onMinusNumber, selected }: IFruitBox) => {
   return (
     <>
       {selected === "전체" && (
@@ -21,8 +16,8 @@ const FruitBox = ({
             <FruitBoxItem
               key={fruit.id}
               fruit={fruit}
-              handleAddNumber={handleAddNumber}
-              handleMinusNumber={handleMinusNumber}
+              onAddNumber={onAddNumber}
+              onMinusNumber={onMinusNumber}
             />
           ))}
         </>
@@ -35,8 +30,8 @@ const FruitBox = ({
                 <FruitBoxItem
                   key={fruit.id}
                   fruit={fruit}
-                  handleAddNumber={handleAddNumber}
-                  handleMinusNumber={handleMinusNumber}
+                  onAddNumber={onAddNumber}
+                  onMinusNumber={onMinusNumber}
                 />
               )}
             </>
@@ -51,8 +46,8 @@ const FruitBox = ({
                 <FruitBoxItem
                   key={fruit.id}
                   fruit={fruit}
-                  handleAddNumber={handleAddNumber}
-                  handleMinusNumber={handleMinusNumber}
+                  onAddNumber={onAddNumber}
+                  onMinusNumber={onMinusNumber}
                 />
               )}
             </>

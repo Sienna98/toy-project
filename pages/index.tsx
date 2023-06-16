@@ -6,19 +6,19 @@ const HomePage = () => {
   const [isAddNumber, setAddNumber] = useState(0);
 
   const handleAddNumber = () => {
-    setAddNumber(isAddNumber + 1);
+    setAddNumber((prev) => prev + 1);
   };
   const handleIsMinusNumber = () => {
     if (isAddNumber > 0) {
-      setAddNumber(isAddNumber - 1);
+      setAddNumber((prev) => prev - 1);
     }
   };
   return (
     <>
       <Header countInCart={isAddNumber} />
       <MainPage
-        handleAddNumber={handleAddNumber}
-        handleMinusNumber={handleIsMinusNumber}
+        onAddNumber={handleAddNumber}
+        onMinusNumber={handleIsMinusNumber}
       />
     </>
   );

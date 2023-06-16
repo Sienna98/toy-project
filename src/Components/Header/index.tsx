@@ -3,14 +3,10 @@ import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
-type TabName = string | boolean;
-interface IHeader {
-  countInCart: number;
-}
-const Header = ({ countInCart }: IHeader) => {
-  const [isTabButton, setIsTabButton] = useState<TabName>("상품목록");
+const Header = ({ countInCart }: { countInCart: number }) => {
+  const [isTabButton, setIsTabButton] = useState<string>("상품목록");
 
-  const handleClickTab = (tabName: TabName) => {
+  const handleClickTab = (tabName: string) => {
     setIsTabButton(tabName);
   };
 
@@ -19,18 +15,18 @@ const Header = ({ countInCart }: IHeader) => {
       <StyledTitle>시은이네 과일가게</StyledTitle>
       <StyledButtonWrap>
         <MainButton
-          backgroundColor={`${
+          backgroundColor={
             isTabButton === "상품목록" ? "lightgray" : "transparent"
-          }`}
+          }
           onClick={() => handleClickTab("상품목록")}
         >
           상품목록
         </MainButton>
         <StyledRelative>
           <MainButton
-            backgroundColor={`${
+            backgroundColor={
               isTabButton === "장바구니" ? "lightgray" : "transparent"
-            }`}
+            }
             onClick={() => handleClickTab("장바구니")}
           >
             장바구니
