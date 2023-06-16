@@ -4,16 +4,14 @@ import { theme } from "@/styles/theme";
 import FruitBox from "../FruitBox";
 import MainButton from "../MainButton";
 
-type ButtonName = string | boolean;
 interface IMainPage {
-  handleAddNumber: () => void;
-  handleMinusNumber: () => void;
+  onAddNumber: () => void;
+  onMinusNumber: () => void;
 }
-const MainPage = ({ handleAddNumber, handleMinusNumber }: IMainPage) => {
-  const [isfruitTypeButton, setIsfruitTypeButton] =
-    useState<ButtonName>("전체");
+const MainPage = ({ onAddNumber, onMinusNumber }: IMainPage) => {
+  const [isfruitTypeButton, setIsfruitTypeButton] = useState<string>("전체");
 
-  const handleIsfruitTypeButton = (buttonName: ButtonName) => {
+  const handleIsfruitTypeButton = (buttonName: string) => {
     setIsfruitTypeButton(buttonName);
   };
   return (
@@ -46,8 +44,8 @@ const MainPage = ({ handleAddNumber, handleMinusNumber }: IMainPage) => {
       </StyledButtonWrap>
       <FruitBoxWrap className="mt48">
         <FruitBox
-          handleAddNumber={handleAddNumber}
-          handleMinusNumber={handleMinusNumber}
+          onAddNumber={onAddNumber}
+          onMinusNumber={onMinusNumber}
           selected={isfruitTypeButton}
         />
       </FruitBoxWrap>
