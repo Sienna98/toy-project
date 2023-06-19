@@ -7,26 +7,37 @@ interface IHeader {
   countInCart: number;
   onClickTab: (tabName: string) => void;
   tabButton: string;
+  cartPageTab?: (select: string) => void;
 }
-const Header = ({ countInCart, onClickTab, tabButton }: IHeader) => {
+const Header = ({
+  countInCart,
+  onClickTab,
+  tabButton,
+  cartPageTab,
+}: IHeader) => {
   return (
     <StyledHeader>
       <StyledTitle>시은이네 과일가게</StyledTitle>
       <StyledButtonWrap>
         <MainButton
-          backgroundColor={
+          backgroundcolor={
             tabButton === "상품목록" ? "lightgray" : "transparent"
           }
-          onClick={() => onClickTab("상품목록")}
+          onClick={() => {
+            onClickTab("상품목록");
+          }}
         >
           상품목록
         </MainButton>
         <StyledRelative>
           <MainButton
-            backgroundColor={
+            backgroundcolor={
               tabButton === "장바구니" ? "lightgray" : "transparent"
             }
-            onClick={() => onClickTab("장바구니")}
+            onClick={() => {
+              onClickTab("장바구니");
+              cartPageTab("cart");
+            }}
           >
             장바구니
           </MainButton>

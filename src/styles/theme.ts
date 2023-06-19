@@ -8,6 +8,7 @@ const colors: Icolors = {
   yellow: "#FFD400",
   darkgray: "#C8CAD2",
   lightgray: "#F2F3F7",
+  transparent: "transparent",
 };
 export type ColorsTypes = typeof colors;
 

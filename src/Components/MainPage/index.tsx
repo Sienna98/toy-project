@@ -18,7 +18,7 @@ const MainPage = ({ onAddNumber, onMinusNumber }: IMainPage) => {
     <StyledMainPage>
       <StyledButtonWrap>
         <MainButton
-          backgroundColor={
+          backgroundcolor={
             isfruitTypeButton === "전체" ? "yellow" : "transparent"
           }
           onClick={() => handleIsfruitTypeButton("전체")}
@@ -26,7 +26,7 @@ const MainPage = ({ onAddNumber, onMinusNumber }: IMainPage) => {
           전체
         </MainButton>
         <MainButton
-          backgroundColor={
+          backgroundcolor={
             isfruitTypeButton === "일반 과일" ? "yellow" : "transparent"
           }
           onClick={() => handleIsfruitTypeButton("일반 과일")}
@@ -34,7 +34,7 @@ const MainPage = ({ onAddNumber, onMinusNumber }: IMainPage) => {
           일반 과일
         </MainButton>
         <MainButton
-          backgroundColor={
+          backgroundcolor={
             isfruitTypeButton === "prime 과일" ? "yellow" : "transparent"
           }
           onClick={() => handleIsfruitTypeButton("prime 과일")}

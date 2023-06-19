@@ -36,11 +36,11 @@ const FruitBoxItem = ({ fruit, onAddNumber, onMinusNumber }: IFruitBox) => {
         </StyledFruitDetail>
       </Flex>
       <StyledButtonWrap>
-        <MainButton backgroundColor="lightgray" onClick={onMinusNumber}>
+        <MainButton backgroundcolor="lightgray" onClick={onMinusNumber}>
           빼기
         </MainButton>
         <MainButton
-          backgroundColor={fruit.isPrime ? "orange" : "yellow"}
+          backgroundcolor={fruit.isPrime ? "orange" : "yellow"}
           onClick={onAddNumber}
         >
           담기
