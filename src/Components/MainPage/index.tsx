@@ -9,18 +9,8 @@ interface IMainPage {
   onAddNumber: () => void;
   onMinusNumber: () => void;
   countInCart: number;
-  onClickTab: (tabName: string) => void;
-  tabButton: string;
-  cartPageTab: (select: string) => void;
 }
-const MainPage = ({
-  onAddNumber,
-  onMinusNumber,
-  countInCart,
-  onClickTab,
-  tabButton,
-  cartPageTab,
-}: IMainPage) => {
+const MainPage = ({ onAddNumber, onMinusNumber, countInCart }: IMainPage) => {
   const [isfruitTypeButton, setIsfruitTypeButton] = useState<string>("전체");
 
   const handleIsfruitTypeButton = (buttonName: string) => {
@@ -28,12 +18,7 @@ const MainPage = ({
   };
   return (
     <>
-      <Header
-        countInCart={countInCart}
-        onClickTab={onClickTab}
-        tabButton={tabButton}
-        cartPageTab={cartPageTab}
-      />
+      <Header countInCart={countInCart} />
       <StyledMainPage>
         <StyledButtonWrap>
           <MainButton
