@@ -2,54 +2,74 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import MainFruitBox from "../FruitBox/Main";
+import Header from "../Header";
 import MainButton from "../MainButton";
 
 interface IMainPage {
   onAddNumber: () => void;
   onMinusNumber: () => void;
+  countInCart: number;
+  onClickTab: (tabName: string) => void;
+  tabButton: string;
+  cartPageTab: (select: string) => void;
 }
-const MainPage = ({ onAddNumber, onMinusNumber }: IMainPage) => {
+const MainPage = ({
+  onAddNumber,
+  onMinusNumber,
+  countInCart,
+  onClickTab,
+  tabButton,
+  cartPageTab,
+}: IMainPage) => {
   const [isfruitTypeButton, setIsfruitTypeButton] = useState<string>("전체");
 
   const handleIsfruitTypeButton = (buttonName: string) => {
     setIsfruitTypeButton(buttonName);
   };
   return (
-    <StyledMainPage>
-      <StyledButtonWrap>
-        <MainButton
-          backgroundcolor={
-            isfruitTypeButton === "전체" ? "yellow" : "transparent"
-          }
-          onClick={() => handleIsfruitTypeButton("전체")}
-        >
-          전체
-        </MainButton>
-        <MainButton
-          backgroundcolor={
-            isfruitTypeButton === "일반 과일" ? "yellow" : "transparent"
-          }
-          onClick={() => handleIsfruitTypeButton("일반 과일")}
-        >
-          일반 과일
-        </MainButton>
-        <MainButton
-          backgroundcolor={
-            isfruitTypeButton === "prime 과일" ? "yellow" : "transparent"
-          }
-          onClick={() => handleIsfruitTypeButton("prime 과일")}
-        >
-          <StyledPrime>prime</StyledPrime> 과일
-        </MainButton>
-      </StyledButtonWrap>
-      <StyledFruitBoxWrap className="mt48">
-        <MainFruitBox
-          onAddNumber={onAddNumber}
-          onMinusNumber={onMinusNumber}
-          selected={isfruitTypeButton}
-        />
-      </StyledFruitBoxWrap>
-    </StyledMainPage>
+    <>
+      <Header
+        countInCart={countInCart}
+        onClickTab={onClickTab}
+        tabButton={tabButton}
+        cartPageTab={cartPageTab}
+      />
+      <StyledMainPage>
+        <StyledButtonWrap>
+          <MainButton
+            backgroundcolor={
+              isfruitTypeButton === "전체" ? "yellow" : "transparent"
+            }
+            onClick={() => handleIsfruitTypeButton("전체")}
+          >
+            전체
+          </MainButton>
+          <MainButton
+            backgroundcolor={
+              isfruitTypeButton === "일반 과일" ? "yellow" : "transparent"
+            }
+            onClick={() => handleIsfruitTypeButton("일반 과일")}
+          >
+            일반 과일
+          </MainButton>
+          <MainButton
+            backgroundcolor={
+              isfruitTypeButton === "prime 과일" ? "yellow" : "transparent"
+            }
+            onClick={() => handleIsfruitTypeButton("prime 과일")}
+          >
+            <StyledPrime>prime</StyledPrime> 과일
+          </MainButton>
+        </StyledButtonWrap>
+        <StyledFruitBoxWrap className="mt48">
+          <MainFruitBox
+            onAddNumber={onAddNumber}
+            onMinusNumber={onMinusNumber}
+            selected={isfruitTypeButton}
+          />
+        </StyledFruitBoxWrap>
+      </StyledMainPage>
+    </>
   );
 };
 

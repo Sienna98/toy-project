@@ -25,6 +25,9 @@ const Header = ({
           }
           onClick={() => {
             onClickTab("상품목록");
+            if (cartPageTab) {
+              cartPageTab("/");
+            }
           }}
         >
           상품목록
@@ -36,7 +39,9 @@ const Header = ({
             }
             onClick={() => {
               onClickTab("장바구니");
-              cartPageTab("cart");
+              if (cartPageTab) {
+                cartPageTab("cart");
+              }
             }}
           >
             장바구니

@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import Header from "@/Components/Header";
 import MainPage from "@/Components/MainPage";
 import Cart from "./cart";
 
@@ -21,24 +20,20 @@ const HomePage = () => {
     }
   };
   const cartPageTab = (select: string) => {
-    router.replace(`/${select}`);
+    router.push(`/${select}`);
   };
   return (
     <>
-      {tabButton === "상품목록" && (
-        <>
-          <Header
-            countInCart={isAddNumber}
-            onClickTab={handleClickTab}
-            tabButton={tabButton}
-          />
-          <MainPage
-            onAddNumber={handleAddNumber}
-            onMinusNumber={handleIsMinusNumber}
-          />
-        </>
-      )}
-      {tabButton === "장바구니" && (
+      {tabButton === "상품목록" ? (
+        <MainPage
+          onAddNumber={handleAddNumber}
+          onMinusNumber={handleIsMinusNumber}
+          onClickTab={handleClickTab}
+          countInCart={isAddNumber}
+          tabButton={tabButton}
+          cartPageTab={cartPageTab}
+        />
+      ) : (
         <Cart
           onMinusNumber={handleIsMinusNumber}
           onClickTab={handleClickTab}
