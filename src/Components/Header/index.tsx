@@ -17,7 +17,9 @@ const Header = ({ countInCart }: IHeader) => {
         <MainButton
           backgroundcolor={router.asPath === "/" ? "lightgray" : "transparent"}
           onClick={() => {
-            router.push("/");
+            if (router.asPath !== "/") {
+              router.push("/");
+            }
           }}
         >
           상품목록
@@ -28,7 +30,9 @@ const Header = ({ countInCart }: IHeader) => {
               router.asPath === "/cart" ? "lightgray" : "transparent"
             }
             onClick={() => {
-              router.push("/cart");
+              if (router.asPath !== "/cart") {
+                router.push("/cart");
+              }
             }}
           >
             장바구니
