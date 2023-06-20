@@ -1,9 +1,10 @@
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
+import { ColorsTypes } from "@/styles/theme";
 
 interface IMainButton {
   children: React.ReactNode;
-  backgroundcolor: string;
+  backgroundcolor: ColorsTypes;
   onClick: () => void;
 }
 const MainButton = ({ children, backgroundcolor, onClick }: IMainButton) => {
@@ -20,7 +21,7 @@ const MainButton = ({ children, backgroundcolor, onClick }: IMainButton) => {
 
 export default MainButton;
 
-const StyledButton = styled.button<{ backgroundcolor: string }>`
+const StyledButton = styled.button<{ backgroundcolor: ColorsTypes }>`
   padding: 12px 16px;
   font-size: 14px;
   font-weight: 700;

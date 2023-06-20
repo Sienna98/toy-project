@@ -1,24 +1,31 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
 interface IHeader {
   countInCart: number;
 }
+
+const PRODUCT_LIST_PATH = "/";
+const CART_PATH = "/cart";
+const ACTIVE_COLOR = "lightgray";
+
 const Header = ({ countInCart }: IHeader) => {
   const router = useRouter();
 
   return (
     <StyledHeader>
-      <StyledTitle>시은이네 과일가게</StyledTitle>
+      <StyledTitle>과일가게</StyledTitle>
       <StyledButtonWrap>
         <MainButton
-          backgroundcolor={router.asPath === "/" ? "lightgray" : "transparent"}
+          backgroundcolor={
+            router.asPath === PRODUCT_LIST_PATH ? ACTIVE_COLOR : "transparent"
+          }
           onClick={() => {
             if (router.asPath !== "/") {
-              router.push("/");
+              router.push(PRODUCT_LIST_PATH);
             }
           }}
         >
@@ -27,11 +34,11 @@ const Header = ({ countInCart }: IHeader) => {
         <StyledRelative>
           <MainButton
             backgroundcolor={
-              router.asPath === "/cart" ? "lightgray" : "transparent"
+              router.asPath === CART_PATH ? ACTIVE_COLOR : "transparent"
             }
             onClick={() => {
-              if (router.asPath !== "/cart") {
-                router.push("/cart");
+              if (router.asPath !== CART_PATH) {
+                router.push(CART_PATH);
               }
             }}
           >

@@ -7,6 +7,7 @@ const HomePage = () => {
   const handleAddNumber = () => {
     setAddNumber((prev) => prev + 1);
   };
+
   const handleIsMinusNumber = () => {
     if (isAddNumber > 0) {
       setAddNumber((prev) => prev - 1);

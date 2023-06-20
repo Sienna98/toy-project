@@ -1,16 +1,14 @@
 import { DefaultTheme } from "styled-components";
 
-interface Icolors {
-  [key: string]: string;
-}
-const colors: Icolors = {
+export const colors = {
   orange: "#FB842D",
   yellow: "#FFD400",
   darkgray: "#C8CAD2",
   lightgray: "#F2F3F7",
   transparent: "transparent",
-};
-export type ColorsTypes = typeof colors;
+} as const;
+
+export type ColorsTypes = keyof typeof colors;
 
 // export const MIXINS = {
 //   // flex
