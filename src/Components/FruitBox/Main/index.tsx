@@ -12,9 +12,12 @@ const MainFruitBox = ({
   onMinusNumber,
   selected,
 }: IMainFruitBox) => {
+  const ALL_FRUITS = "전체";
+  const ORDINARY_FRUITS = "일반 과일";
+  const PRIME_FRUITS = "prime 과일";
   return (
     <>
-      {selected === "전체" && (
+      {selected === ALL_FRUITS && (
         <>
           {fruitProducts.map((fruit) => (
             <FruitBoxItem
@@ -26,7 +29,7 @@ const MainFruitBox = ({
           ))}
         </>
       )}
-      {selected === "일반 과일" && (
+      {selected === ORDINARY_FRUITS && (
         <>
           {fruitProducts.map((fruit) => (
             <>
@@ -42,7 +45,7 @@ const MainFruitBox = ({
           ))}
         </>
       )}
-      {selected === "prime 과일" && (
+      {selected === PRIME_FRUITS && (
         <>
           {fruitProducts.map((fruit) => (
             <>
