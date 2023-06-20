@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { ALL_FRUITS, ORDINARY_FRUITS, PRIME_FRUITS } from "@/constants";
 import { theme } from "@/styles/theme";
 import MainFruitBox from "../FruitBox/Main";
 import Header from "../Header";
@@ -23,25 +24,25 @@ const MainPage = ({ onAddNumber, onMinusNumber, countInCart }: IMainPage) => {
         <StyledButtonWrap>
           <MainButton
             backgroundcolor={
-              isfruitTypeButton === "전체" ? "yellow" : "transparent"
+              isfruitTypeButton === ALL_FRUITS ? "yellow" : "transparent"
             }
-            onClick={() => handleIsfruitTypeButton("전체")}
+            onClick={() => handleIsfruitTypeButton(ALL_FRUITS)}
           >
             전체
           </MainButton>
           <MainButton
             backgroundcolor={
-              isfruitTypeButton === "일반 과일" ? "yellow" : "transparent"
+              isfruitTypeButton === ORDINARY_FRUITS ? "yellow" : "transparent"
             }
-            onClick={() => handleIsfruitTypeButton("일반 과일")}
+            onClick={() => handleIsfruitTypeButton(ORDINARY_FRUITS)}
           >
             일반 과일
           </MainButton>
           <MainButton
             backgroundcolor={
-              isfruitTypeButton === "prime 과일" ? "yellow" : "transparent"
+              isfruitTypeButton === PRIME_FRUITS ? "yellow" : "transparent"
             }
-            onClick={() => handleIsfruitTypeButton("prime 과일")}
+            onClick={() => handleIsfruitTypeButton(PRIME_FRUITS)}
           >
             <StyledPrime>prime</StyledPrime> 과일
           </MainButton>

@@ -1,4 +1,5 @@
 import React from "react";
+import { ALL_FRUITS, ORDINARY_FRUITS, PRIME_FRUITS } from "@/constants";
 import { fruitProducts } from "@/data/fruit-products";
 import FruitBoxItem from "./FruitBoxItem";
 
@@ -12,9 +13,6 @@ const MainFruitBox = ({
   onMinusNumber,
   selected,
 }: IMainFruitBox) => {
-  const ALL_FRUITS = "전체";
-  const ORDINARY_FRUITS = "일반 과일";
-  const PRIME_FRUITS = "prime 과일";
   return (
     <>
       {selected === ALL_FRUITS && (

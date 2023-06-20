@@ -1,16 +1,13 @@
 import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
+import { ACTIVE_COLOR, CART_PATH, PRODUCT_LIST_PATH } from "@/constants";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
 interface IHeader {
   countInCart: number;
 }
-
-const PRODUCT_LIST_PATH = "/";
-const CART_PATH = "/cart";
-const ACTIVE_COLOR = "lightgray";
 
 const Header = ({ countInCart }: IHeader) => {
   const router = useRouter();
