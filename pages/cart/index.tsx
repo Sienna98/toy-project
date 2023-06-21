@@ -1,16 +1,15 @@
 import React from "react";
 import CartPage from "@/Components/CartPage";
 import Header from "@/Components/Header";
+import useCount from "@/hooks/useCount";
 
-interface ICart {
-  onMinusNumber: () => void;
-  countInCart: number;
-}
-const Cart = ({ onMinusNumber, countInCart }: ICart) => {
+const Cart = () => {
+  const { handleIsMinusNumber, count } = useCount();
+
   return (
     <div>
-      <Header countInCart={countInCart} />
-      <CartPage onMinusNumber={onMinusNumber} />
+      <Header countInCart={count} />
+      <CartPage onMinusNumber={handleIsMinusNumber} />
     </div>
   );
 };
