@@ -20,10 +20,13 @@ export default CartPage;
 const StyledCartPage = styled.div`
   margin-top: 64px;
   padding: 48px;
+  display: flex;
+  justify-content: center;
 `;
 const StyledFruitBoxWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 48px 48px;
   justify-content: flex-start;
+  width: 880px;
 `;

@@ -24,19 +24,19 @@ const FruitBoxItem = ({ fruit, onMinusNumber }: IFruitBox) => {
         <StyledFruitDetail>
           <li className="fruit">{fruit.name}</li>
           <li className="price mt19">{fruit.price}원</li>
-          <li className="count mt13">
-            <span>잔량</span>
-            {fruit.stock}
-          </li>
           <li className="count mt8">
             <span>수량</span>
             {fruit.stock}
+          </li>
+          <li className="total_price mt12">
+            <span>상품금액</span>
+            {fruit.stock * fruit.price}
           </li>
         </StyledFruitDetail>
       </Flex>
       <StyledButtonWrap>
         <MainButton backgroundcolor="lightgray" onClick={onMinusNumber}>
-          빼기
+          취소
         </MainButton>
       </StyledButtonWrap>
     </StyledFruitBox>
@@ -101,6 +101,17 @@ const StyledFruitDetail = styled.ul`
   .count {
     font-size: 16px;
     line-height: 19px;
+    display: flex;
+    gap: 8px;
+    span {
+      color: #727585;
+      font-weight: 500;
+    }
+  }
+  .total_price {
+    border-top: 1px solid #c8cad2;
+    padding-top: 12px;
+    width: 163px;
     display: flex;
     gap: 8px;
     span {

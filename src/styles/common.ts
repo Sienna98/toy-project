@@ -10,6 +10,9 @@ const CommonStyle = styled.div`
   .mt13 {
     margin-top: 13px;
   }
+  .mt12 {
+    margin-top: 12px;
+  }
   .mt8 {
     margin-top: 8px;
   }
