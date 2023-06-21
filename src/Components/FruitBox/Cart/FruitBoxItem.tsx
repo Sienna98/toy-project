@@ -13,10 +13,9 @@ interface IFruitBox {
     stock: number;
   };
 
-  onAddNumber: () => void;
   onMinusNumber: () => void;
 }
-const FruitBoxItem = ({ fruit, onAddNumber, onMinusNumber }: IFruitBox) => {
+const FruitBoxItem = ({ fruit, onMinusNumber }: IFruitBox) => {
   return (
     <StyledFruitBox key={fruit.id}>
       {fruit.isPrime && <Prime>prime</Prime>}
@@ -38,12 +37,6 @@ const FruitBoxItem = ({ fruit, onAddNumber, onMinusNumber }: IFruitBox) => {
       <StyledButtonWrap>
         <MainButton backgroundcolor="lightgray" onClick={onMinusNumber}>
           빼기
-        </MainButton>
-        <MainButton
-          backgroundcolor={fruit.isPrime ? "orange" : "yellow"}
-          onClick={onAddNumber}
-        >
-          담기
         </MainButton>
       </StyledButtonWrap>
     </StyledFruitBox>
