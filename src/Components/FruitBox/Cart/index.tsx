@@ -1,6 +1,7 @@
 import React from "react";
 import { fruitProducts } from "@/data/fruit-products";
 import FruitBoxItem from "./FruitBoxItem";
+import TotalPrice from "./totalPrice";
 
 interface IFruitBox {
   onMinusNumber: () => void;
@@ -15,6 +16,7 @@ const CartFruitBox = ({ onMinusNumber }: IFruitBox) => {
           onMinusNumber={onMinusNumber}
         />
       ))}
+      <TotalPrice />
     </>
   );
 };
