@@ -1,24 +1,16 @@
-import React, { useState } from "react";
-import Header from "@/Components/Header";
+import React from "react";
 import MainPage from "@/Components/MainPage";
+import useCount from "@/hooks/useCount";
 
 const HomePage = () => {
-  const [isAddNumber, setAddNumber] = useState(0);
+  const { handleAddNumber, handleIsMinusNumber, count } = useCount();
 
-  const handleAddNumber = () => {
-    setAddNumber(isAddNumber + 1);
-  };
-  const handleIsMinusNumber = () => {
-    if (isAddNumber > 0) {
-      setAddNumber(isAddNumber - 1);
-    }
-  };
   return (
     <>
-      <Header countInCart={isAddNumber} />
       <MainPage
-        handleAddNumber={handleAddNumber}
-        handleMinusNumber={handleIsMinusNumber}
+        onAddNumber={handleAddNumber}
+        onMinusNumber={handleIsMinusNumber}
+        countInCart={count}
       />
     </>
   );

@@ -1,37 +1,43 @@
-import React, { useState } from "react";
-import { styled } from "styled-components";
+import { useRouter } from "next/router";
+import React from "react";
+import styled from "styled-components";
+import { ACTIVE_COLOR, CART_PATH, PRODUCT_LIST_PATH } from "@/constants";
 import { theme } from "@/styles/theme";
 import MainButton from "../MainButton";
 
-type TabName = string | boolean;
 interface IHeader {
   countInCart: number;
 }
-const Header = ({ countInCart }: IHeader) => {
-  const [isTabButton, setIsTabButton] = useState<TabName>("상품목록");
 
-  const handleClickTab = (tabName: TabName) => {
-    setIsTabButton(tabName);
-  };
+const Header = ({ countInCart }: IHeader) => {
+  const router = useRouter();
 
   return (
     <StyledHeader>
-      <StyledTitle>시은이네 과일가게</StyledTitle>
+      <StyledTitle>과일가게</StyledTitle>
       <StyledButtonWrap>
         <MainButton
-          backgroundColor={`${
-            isTabButton === "상품목록" ? "lightgray" : "transparent"
-          }`}
-          onClick={() => handleClickTab("상품목록")}
+          backgroundcolor={
+            router.asPath === PRODUCT_LIST_PATH ? ACTIVE_COLOR : "transparent"
+          }
+          onClick={() => {
+            if (router.asPath !== "/") {
+              router.push(PRODUCT_LIST_PATH);
+            }
+          }}
         >
           상품목록
         </MainButton>
         <StyledRelative>
           <MainButton
-            backgroundColor={`${
-              isTabButton === "장바구니" ? "lightgray" : "transparent"
-            }`}
-            onClick={() => handleClickTab("장바구니")}
+            backgroundcolor={
+              router.asPath === CART_PATH ? ACTIVE_COLOR : "transparent"
+            }
+            onClick={() => {
+              if (router.asPath !== CART_PATH) {
+                router.push(CART_PATH);
+              }
+            }}
           >
             장바구니
           </MainButton>
