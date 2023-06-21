@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import { CountProvider } from "@/contexts/count";
 import CommonStyle from "@/styles/common";
