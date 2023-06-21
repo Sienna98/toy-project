@@ -1,15 +1,16 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
+import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { CountProvider } from "@/contexts/count";
+import store from "@/app/store";
 import CommonStyle from "@/styles/common";
 import GlobalStyle from "@/styles/global-style";
 import { theme } from "../src/styles/theme";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <CountProvider>
+    <Provider store={store}>
       <CommonStyle>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +20,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} />
         </ThemeProvider>
       </CommonStyle>
-    </CountProvider>
+    </Provider>
   );
 };
 
